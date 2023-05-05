@@ -58,9 +58,9 @@ function [area,centre]=pupil_DLCextract(dpath)
             centre(fr,:)=[NaN,NaN];axes(fr,:)=[NaN,NaN];
         end
     end
-%     int_long_axis=interp1(find(isnan(long_axis)),long_axis); % linearly interp missing vals
-%     int_centre=interp1(find(isnan(centre)),centre); % linearly interp missing vals
-%     int_area=interp1(find(isnan(area)),area); % linearly interp missing vals
+    long_axis=interp1(find(isnan(long_axis)),long_axis); % linearly interp missing vals
+    centre=interp1(find(isnan(centre)),centre); % linearly interp missing vals
+    area=interp1(find(isnan(area)),area); % linearly interp missing vals
 
     %DAQdata2.pupil_longaxis= mean(reshape(a(1:51900),round(size(a(1:51900),1)/60), 60,[]),2) % downsample and bin avg
     DAQdata2.pupil_area = area; DAQdata2.pupil_centre = centre;
